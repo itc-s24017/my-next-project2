@@ -13,3 +13,4 @@ export default function Date({ date }: Props) {
         </span>
     );
 }
+
