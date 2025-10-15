@@ -1,6 +1,7 @@
 import Image from "next/image";
 import styles from "./index.module.css";
 import Link from "next/link";
+import Menu from "@/app/_components/Menu";
 
 export default function Header() {
     return (
@@ -15,13 +16,7 @@ export default function Header() {
                     priority
                 />
             </Link>
-            <nav>
-                <ul className={styles.items}>
-                    <li>
-                        <Link href="/members">メンバー</Link>
-                    </li>
-                </ul>
-            </nav>
+            <Menu />
         </header>
     );
 }
