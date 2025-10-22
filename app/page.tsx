@@ -1,25 +1,22 @@
-import styles from "./page.module.css";
-import Image from "next/image";
-import { getNewsList } from "./_libs/microcms";
-import { TOP_NEWS_LIMIT } from "./_constants";
-import NewsList from "./_components/NewsList";
-import ButtonLink from "./_components/ButtonLink";
+import styles from './page.module.css';
+import Image from 'next/image';
+
+import { getNewsList } from '@/app/_libs/microcms';
+import { TOP_NEWS_LIMIT } from '@/app/_constants';
+import NewsList from '@/app/_components/NewsList';
+import ButtonLink from '@/app/_components/ButtonLink';
 
 export default async function Home() {
-  const name = "世界";
-
   const data = await getNewsList({
     limit: TOP_NEWS_LIMIT,
   });
-
-  // const sliceData: News[] = []; // ニュースがない場合の表示確認用
   return (
     <>
       <section className={styles.top}>
         <div>
-          <h1 className={styles.title}>テクノロジーの力で{name}を変える</h1>
+          <h1 className={styles.title}>テクノロジーの力で世界を変える</h1>
           <p className={styles.description}>
-            私達は市場をリードしているグローバルテックカンパニーです。
+            私たちは市場をリードしているグローバルテックカンパニーです。
           </p>
         </div>
         <Image
