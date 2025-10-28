@@ -1,8 +1,8 @@
-import { notFound } from 'next/navigation';
-import { getNewsDetail } from '@/app/_libs/microcms';
-import Article from '@/app/_components/Article';
-import ButtonLink from '@/app/_components/ButtonLink';
-import styles from './page.module.css';
+import { notFound } from "next/navigation";
+import { getNewsDetail } from "@/app/_libs/microcms";
+import Article from "@/app/_components/Article";
+import ButtonLink from "@/app/_components/ButtonLink";
+import styles from "./page.module.css";
 
 type Props = {
   params: {

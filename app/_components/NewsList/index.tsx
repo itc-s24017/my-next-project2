@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-import styles from './index.module.css';
-import Category from '../Category';
-import Date from '../Date';
-import { News } from '@/app/_libs/microcms';
+import styles from "./index.module.css";
+import Category from "../Category";
+import Date from "../Date";
+import { News } from "@/app/_libs/microcms";
 
 type Props = {
   news: News[];
@@ -14,6 +14,7 @@ export default function NewsList({ news }: Props) {
   if (news.length === 0) {
     return <p>記事がありません。</p>;
   }
+
   return (
     <ul>
       {news.map((article) => (
