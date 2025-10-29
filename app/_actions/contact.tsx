@@ -62,19 +62,30 @@ export async function createContactData(_prevState: any, formData: FormData) {
       { name: "email", value: rawFormData.email },
       { name: "message", value: rawFormData.message },
     ],
+    // GDPR 必須のポータルでは以下が必要（不要なら削除可）
+    // legalConsentOptions: {
+    //   consent: {
+    //     consentToProcess: true,
+    //     text: "I agree to allow processing of my data.",
+    //     communications: [{ value: true, subscriptionTypeId: 999, text: "I agree to receive communications." }]
+    //   }
+    // }
   };
 
   const result = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
+    // 企業プロキシ等で必要な場合: next: { revalidate: 0 }
   });
 
-  const text = await result.text();
+  // エラーハンドリングを厳密に
+  const text = await result.text(); // まずテキストで読む（HTMLエラーでも読める）
   let data: any = null;
   try {
     data = text ? JSON.parse(text) : null;
   } catch {
+    /* HTML 等JSON以外 */
   }
 
   if (!result.ok) {
