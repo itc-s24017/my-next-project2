@@ -11,10 +11,9 @@ type Props = {
 };
 
 export default function NewsList({ news }: Props) {
-  if (news.length === 0) {
-    return <p>記事がありません。</p>;
+  if (!news.length) {
+    return <p>記事がありません</p>;
   }
-
   return (
     <ul>
       {news.map((article) => (
@@ -23,8 +22,8 @@ export default function NewsList({ news }: Props) {
             {article.thumbnail ? (
               <Image
                 src={article.thumbnail.url}
-                alt=""
                 className={styles.image}
+                alt=""
                 width={article.thumbnail.width}
                 height={article.thumbnail.height}
               />
@@ -37,8 +36,9 @@ export default function NewsList({ news }: Props) {
                 height={630}
               />
             )}
+
             <dl className={styles.content}>
-              <dt className={styles.title}>{article.title}</dt>
+              <dt className={styles.Title}>{article.title}</dt>
               <dd className={styles.meta}>
                 <Category category={article.category} />
                 <Date date={article.publishedAt ?? article.createdAt} />

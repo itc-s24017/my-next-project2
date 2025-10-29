@@ -7,7 +7,7 @@ import cx from "classnames";
 import styles from "./index.module.css";
 
 export default function Menu() {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setOpen] = useState<boolean>(false);
   const open = () => setOpen(true);
   const close = () => setOpen(false);
 
@@ -36,7 +36,7 @@ export default function Menu() {
         </button>
       </nav>
       <button className={styles.button} onClick={open}>
-        <Image src="/menu.svg" alt="メニュー" width={24} height={24} />
+        <Image src="/menu.svg" alt="メニュー" width={24} height={24} priority />
       </button>
     </div>
   );
